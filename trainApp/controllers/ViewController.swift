@@ -103,6 +103,8 @@ class ViewController: UIViewController {
         let bgImage2 = UIImageView(image: vectorBlue)
         bgImage2.translatesAutoresizingMaskIntoConstraints = false
         bgImage.translatesAutoresizingMaskIntoConstraints = false
+        print(viewFrame.width)
+        print(viewFrame.height)
 
 //        bgImage.transform = bgImage.transform.rotated(by: .pi*7 / 4)
 //        bgImage2.transform = bgImage2.transform.rotated(by: .pi*7 / 4)
@@ -159,14 +161,14 @@ class ViewController: UIViewController {
     
     
     private func buttonAnimation1(_ button: UIButton) -> Void {
-        button.frame.origin.x += 25
+        button.frame.origin.y += 25
     }
     private func buttonAnimation2(_ button: UIButton) -> Void {
-        button.frame.origin.x -= 50
+        button.frame.origin.y -= 50
 //        buttonDone.button.frame.origin.x += 5
     }
     private func buttonAnimation3(_ button: UIButton) -> Void {
-        button.frame.origin.x += 25
+        button.frame.origin.y += 25
     }
     private func buttonAnimationMain(_ button: UIButton) -> Void {
         UIButton.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {self.buttonAnimation1(button)})
