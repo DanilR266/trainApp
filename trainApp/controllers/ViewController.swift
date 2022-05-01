@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ViewController: UIViewController {
     lazy var viewFrame = WeightField()
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     lazy var subLabelWater = LabelCalories()
     lazy var buttonWater = ButtonDone()
     
+    lazy var we = Weight()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,14 +58,14 @@ class ViewController: UIViewController {
         buttonDone.image = "button"
         buttonWater.image = "water"
         
-        
-    
-
-
+        field.weightField.text = we.getW()
         
         mainView(view: view)
         buttonMinus.button.addTarget(nil, action: #selector(buttonMinusPressed(_:)), for: .touchUpInside)
         buttonPlus.button.addTarget(nil, action: #selector(buttonPlusPressed(_:)), for: .touchUpInside)
+        buttonDone.button.addTarget(nil, action: #selector(buttonDonePressed(_:)), for: .touchUpInside)
+        buttonWater.button.addTarget(nil, action: #selector(buttonWaterPressed(_:)), for: .touchUpInside)
+        
         view.addSubview(field.weightField)
         view.addSubview(buttonMinus.button)
         view.addSubview(buttonPlus.button)
@@ -110,7 +112,6 @@ class ViewController: UIViewController {
         
         
         setUpVectors(bgImage, topPadding: viewFrame.height/2 - viewFrame.height/6.8 - 35)
-        print(viewFrame.height)
         setUpVectors(bgImage2, topPadding: viewFrame.height/2 - viewFrame.height/6.8)
 
     }
@@ -141,14 +142,38 @@ class ViewController: UIViewController {
         var finalStr = "\(intText)"
         finalStr = finalStr.replacingOccurrences(of: ".", with: ",")
         field.weightField.text = finalStr
+        
 //        UIButton.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {self.buttonAnimation()})
     }
     
-    
-    
-    private func buttonAnimation() -> Void {
-        buttonMinus.button.transform = buttonMinus.button.transform.rotated(by: .pi)
+    @objc func buttonDonePressed(_ sender: UIButton) {
+        we.setW(weightNow: field.weightField.text!)
+        field.weightField.text = we.getW()
+        buttonAnimationMain(buttonDone.button)
     }
+    
+    @objc func buttonWaterPressed(_ sender: UIButton) {
+        buttonAnimationMain(buttonWater.button)
+    }
+    
+    
+    
+    private func buttonAnimation1(_ button: UIButton) -> Void {
+        button.frame.origin.x += 25
+    }
+    private func buttonAnimation2(_ button: UIButton) -> Void {
+        button.frame.origin.x -= 50
+//        buttonDone.button.frame.origin.x += 5
+    }
+    private func buttonAnimation3(_ button: UIButton) -> Void {
+        button.frame.origin.x += 25
+    }
+    private func buttonAnimationMain(_ button: UIButton) -> Void {
+        UIButton.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {self.buttonAnimation1(button)})
+        UIButton.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {self.buttonAnimation2(button)})
+        UIButton.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {self.buttonAnimation3(button)})
+    }
+    
     
     private func setUpFields(_ previousField: AnyObject, _ field: AnyObject, _ padding: CGFloat, _ width: CGFloat, _ height: CGFloat, _ paddinfLeft: CGFloat) {
         field.leftAnchor.constraint(equalTo: view.leftAnchor, constant: paddinfLeft).isActive = true
@@ -192,8 +217,18 @@ class ViewController: UIViewController {
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        self.view.endEditing(false)
+    }
+    
+    
+    func getWeight() -> String {
+        if let text = field.weightField.text {
+            return text
+        }
+        return ""
     }
 }
+
+
 
 

@@ -24,3 +24,18 @@ enum Buttons: CaseIterable {
     case water 
 }
 
+class Weight {
+//    var weightNow = ViewController().getWeight()
+    var defaults = UserDefaults.standard
+    func setW(weightNow: String) {
+        print("setWe")
+        defaults.set(weightNow, forKey: "Weight")
+    }
+    func getW() -> String{
+        if let stringOne = defaults.string(forKey: "Weight") {
+            print(stringOne)
+            return stringOne
+        }
+        return ""
+    }
+}
