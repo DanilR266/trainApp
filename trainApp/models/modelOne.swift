@@ -26,12 +26,17 @@ enum Buttons: CaseIterable {
 
 class Weight {
 //    var weightNow = ViewController().getWeight()
+    var lastTen = [String]()
     var defaults = UserDefaults.standard
     func setW(weightNow: String) {
         defaults.set(weightNow, forKey: "Weight")
+        lastTen.append(weightNow)
+//        lazy var lastTenSet = Set<String>(lastTen)
+//        lastTen = Array(lastTenSet)
     }
     func getW() -> String{
         if let stringOne = defaults.string(forKey: "Weight") {
+            print(lastTen)
             return stringOne
         }
         return ""

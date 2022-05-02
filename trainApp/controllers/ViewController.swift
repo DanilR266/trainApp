@@ -165,7 +165,6 @@ class ViewController: UIViewController {
     }
     private func buttonAnimation2(_ button: UIButton) -> Void {
         button.frame.origin.y -= 50
-//        buttonDone.button.frame.origin.x += 5
     }
     private func buttonAnimation3(_ button: UIButton) -> Void {
         button.frame.origin.y += 25
