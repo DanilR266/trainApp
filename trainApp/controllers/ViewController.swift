@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         waterText.label.translatesAutoresizingMaskIntoConstraints = false
         subLabelWater.label.text = "Tap to add a glass"
         
-        buttonDone.image = "button"
+        buttonDone.image = "button-2"
         buttonWater.image = "water"
         
         field.weightField.text = we.getW()
@@ -101,20 +101,23 @@ class ViewController: UIViewController {
         let bgImage = UIImageView(image: vectorWhite)
         let vectorBlue = UIImage(named: "Vector2")
         let bgImage2 = UIImageView(image: vectorBlue)
+        let bgLogo = UIImage(named: "logo")
+        let logo = UIImageView(image: bgLogo)
         bgImage2.translatesAutoresizingMaskIntoConstraints = false
         bgImage.translatesAutoresizingMaskIntoConstraints = false
-        print(viewFrame.width)
-        print(viewFrame.height)
+        logo.translatesAutoresizingMaskIntoConstraints = false
 
 //        bgImage.transform = bgImage.transform.rotated(by: .pi*7 / 4)
 //        bgImage2.transform = bgImage2.transform.rotated(by: .pi*7 / 4)
         view.addSubview(bgImage)
         view.addSubview(bgImage2)
+        view.addSubview(logo)
         view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         
         
         setUpVectors(bgImage, topPadding: viewFrame.height/2 - viewFrame.height/6.8 - 35)
         setUpVectors(bgImage2, topPadding: viewFrame.height/2 - viewFrame.height/6.8)
+        setUpLogo(logo, caloriesText.label)
 
     }
     
@@ -206,6 +209,13 @@ class ViewController: UIViewController {
         viewNow.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         viewNow.topAnchor?.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: topPadding).isActive = true
 //        viewNow.leadingAnchor?.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 90).isActive = true
+    }
+    
+    private func setUpLogo(_ logo: AnyObject, _ secondView: AnyObject) {
+        logo.widthAnchor.constraint(equalToConstant: viewFrame.width/3.53).isActive = true
+        logo.heightAnchor.constraint(equalToConstant: viewFrame.height/19.56).isActive = true
+        logo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -28).isActive = true
+        logo.topAnchor?.constraint(equalTo: view.topAnchor, constant: 218).isActive = true
     }
     
     private func labelsFields() {
