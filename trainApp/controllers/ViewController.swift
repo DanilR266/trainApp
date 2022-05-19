@@ -27,6 +27,9 @@ class ViewController: UIViewController {
     lazy var buttonWater = ButtonDone()
     
     lazy var we = Weight()
+    lazy var goalSet = Goal()
+    lazy var glassSet = Glass()
+    lazy var caloriesSet = Calories()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,11 +156,18 @@ class ViewController: UIViewController {
     
     @objc func buttonDonePressed(_ sender: UIButton) {
         we.setW(weightNow: field.weightField.text!)
+        goalSet.setGoals(goal: "70")
+        caloriesSet.setCalories(calories: foodField.text!)
         field.weightField.text = we.getW()
         buttonAnimationMain(buttonDone.button)
+        
     }
     
     @objc func buttonWaterPressed(_ sender: UIButton) {
+        let buttonGlass = glassSet.getGlass()
+        var buttonInt = Int(buttonGlass)
+        buttonInt! += 1
+        glassSet.setGlass(glass: buttonInt!)
         buttonAnimationMain(buttonWater.button)
     }
     
@@ -227,17 +237,7 @@ class ViewController: UIViewController {
         setUpFields(labelPerServe.label, perServe.calField, 25, viewFrame.width/1.15, viewFrame.height/21.3, 26)
         
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(false)
-    }
     
-    
-    func getWeight() -> String {
-        if let text = field.weightField.text {
-            return text
-        }
-        return ""
-    }
 }
 
 

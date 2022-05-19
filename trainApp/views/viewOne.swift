@@ -93,5 +93,56 @@ class ButtonDone: UIButton {
     }
 }
 
+class Profile: UIButton {
+    lazy var profile = profileStyle()
+    
+    private func profileStyle() -> UIButton {
+        let profile = UIButton()
+        profile.translatesAutoresizingMaskIntoConstraints = false
+        profile.layer.cornerRadius = 35
+        profile.backgroundColor = UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
+        return profile
+    }
+}
+
+class SecondScreenLabel: UILabel {
+    lazy var label = labelStyle()
+    
+    private func labelStyle() -> UILabel {
+        let label = UILabel()
+//        label.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)
+        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+}
+
+class LabelField: UILabel {
+    lazy var label = labelStyle()
+    
+    private func labelStyle() -> UILabel {
+        let label = UILabel()
+        label.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+}
+
+class SecondScreenField: UIView {
+    lazy var field = fieldStyle()
+    
+    private func fieldStyle() -> UIView {
+        let field = UIView(frame: CGRect(x: 200, y: 100, width: 100, height: 50))
+        field.layer.cornerRadius = 20
+        field.backgroundColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1)
+        field.layer.borderWidth = 2
+        field.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).cgColor
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
+    }
+}
+
+
 
 
