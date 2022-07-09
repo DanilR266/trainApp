@@ -143,6 +143,20 @@ class SecondScreenField: UIView {
     }
 }
 
+class Scroll: UIScrollView {
+    lazy var scroll = scrollStyle()
+    
+    private func scrollStyle() -> UIScrollView {
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.backgroundColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1)
+//        scroll.backgroundColor = .green
+        return scroll
+    }
+}
+
+
+
 
 
 

@@ -32,18 +32,30 @@ class secondScreen: UIViewController {
     lazy var labelFCalories = LabelField()
     lazy var labelFLastTen = LabelField()
     
+    lazy var scroll = Scroll()
+    
     let weightModel = Weight()
     let goalModel = Goal()
     let glassModel = Glass()
     let caloriesModel = Calories()
     let lastTen = Weight()
+    
+    let k = UILabel()
+    
+    
 
     
     override func viewDidLoad() {
         view.addSubview(profile.profile)
+
         fieldsOnView()
         labelsOnView()
         setUpLabelOnField()
+        view.addSubview(scroll.scroll)
+        setUpScroll()
+
+
+        
     }
     
     private func setUpProfile() {
@@ -145,11 +157,20 @@ class secondScreen: UIViewController {
         view.addSubview(labelFCalories.label)
         setUpText(text: labelFCalories.label, previous: fieldCalories.field)
         let arrayLast = lastTen.getLastTen()
-        labelFLastTen.label.text = "\((arrayLast[0] as! String)) \n \((arrayLast[1] as! String))"
+        labelFLastTen.label.text = "\((arrayLast[0] as! String))"
         labelFLastTen.label.numberOfLines = arrayLast.count
         print(arrayLast.count)
         view.addSubview(labelFLastTen.label)
         setUpText(text: labelFLastTen.label, previous: fieldLast.field)
 
     }
+    
+    private func setUpScroll() {
+        scroll.scroll.centerXAnchor.constraint(equalTo: fieldLast.field.centerXAnchor).isActive = true
+        scroll.scroll.centerYAnchor.constraint(equalTo: fieldLast.field.centerYAnchor).isActive = true
+        scroll.scroll.widthAnchor.constraint(equalToConstant: viewFrame.width - 70).isActive = true
+        scroll.scroll.heightAnchor.constraint(equalToConstant: 63).isActive = true
+        scroll.scroll.contentSize = CGSize(width: 125, height: 1000)
+    }
+    
 }

@@ -67,7 +67,7 @@ class Weight {
         if let arrayOne = defaultsArray.array(forKey: "lastTen") {
             return arrayOne
         }
-        return []
+        return [" ", " "]
     }
 }
 
