@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E07CC03282FC37B00FC64EB /* viewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E07CC02282FC37B00FC64EB /* viewTwo.swift */; };
-		7E07CC05282FC38800FC64EB /* modelTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E07CC04282FC38800FC64EB /* modelTwo.swift */; };
 		7E07CC07282FC3A300FC64EB /* secondScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E07CC06282FC3A300FC64EB /* secondScreen.swift */; };
 		7EF42A992818528B007A599B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF42A982818528B007A599B /* AppDelegate.swift */; };
 		7EF42A9B2818528B007A599B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF42A9A2818528B007A599B /* SceneDelegate.swift */; };
@@ -21,8 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7E07CC02282FC37B00FC64EB /* viewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTwo.swift; sourceTree = "<group>"; };
-		7E07CC04282FC38800FC64EB /* modelTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelTwo.swift; sourceTree = "<group>"; };
 		7E07CC06282FC3A300FC64EB /* secondScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondScreen.swift; sourceTree = "<group>"; };
 		7EF42A952818528B007A599B /* trainApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trainApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF42A982818528B007A599B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				7EF42AAF2818939A007A599B /* modelOne.swift */,
-				7E07CC04282FC38800FC64EB /* modelTwo.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -92,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				7EF42AB328189415007A599B /* viewOne.swift */,
-				7E07CC02282FC37B00FC64EB /* viewTwo.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -181,8 +175,6 @@
 				7E07CC07282FC3A300FC64EB /* secondScreen.swift in Sources */,
 				7EF42AB428189415007A599B /* viewOne.swift in Sources */,
 				7EF42A9D2818528B007A599B /* ViewController.swift in Sources */,
-				7E07CC05282FC38800FC64EB /* modelTwo.swift in Sources */,
-				7E07CC03282FC37B00FC64EB /* viewTwo.swift in Sources */,
 				7EF42A992818528B007A599B /* AppDelegate.swift in Sources */,
 				7EF42A9B2818528B007A599B /* SceneDelegate.swift in Sources */,
 			);

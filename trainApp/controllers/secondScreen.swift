@@ -33,6 +33,7 @@ class secondScreen: UIViewController {
     lazy var labelFLastTen = LabelField()
     
     lazy var scroll = Scroll()
+    lazy var scrollTwo = Scroll()
     
     let weightModel = Weight()
     let goalModel = Goal()
@@ -52,7 +53,9 @@ class secondScreen: UIViewController {
         labelsOnView()
         setUpLabelOnField()
         view.addSubview(scroll.scroll)
+        view.addSubview(scrollTwo.scroll)
         setUpScroll()
+        setUpScrollTwo()
 
 
         
@@ -171,6 +174,13 @@ class secondScreen: UIViewController {
         scroll.scroll.widthAnchor.constraint(equalToConstant: viewFrame.width - 70).isActive = true
         scroll.scroll.heightAnchor.constraint(equalToConstant: 63).isActive = true
         scroll.scroll.contentSize = CGSize(width: 125, height: 1000)
+    }
+    private func setUpScrollTwo() {
+        scrollTwo.scroll.centerXAnchor.constraint(equalTo: fieldMeals.field.centerXAnchor).isActive = true
+        scrollTwo.scroll.centerYAnchor.constraint(equalTo: fieldMeals.field.centerYAnchor).isActive = true
+        scrollTwo.scroll.widthAnchor.constraint(equalToConstant: viewFrame.width - 70).isActive = true
+        scrollTwo.scroll.heightAnchor.constraint(equalToConstant: 63).isActive = true
+        scrollTwo.scroll.contentSize = CGSize(width: 125, height: 1000)
     }
     
 }
