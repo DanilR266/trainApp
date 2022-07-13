@@ -32,10 +32,13 @@ class Weight {
     var defaults = UserDefaults.standard
     var defaultsArray = UserDefaults.standard
     func setW(weightNow: String) {
+        print(weightNow, "Set weigth")
         formatter.dateFormat = "dd.MM.YYYY"
         let date2 = formatter.string(from: date as Date)
         let date3 = String(date2)
         defaults.set(weightNow, forKey: "Weight")
+       
+        
         let lastWeight = weightNow + " - " + date3
         if lastTen.count > 0 && lastTen.count < 10 {
             if weightNow != String(lastTen[lastTen.count-1]) {
@@ -57,8 +60,8 @@ class Weight {
 
     }
     func getW() -> String{
-        
         if let stringOne = defaults.string(forKey: "Weight") {
+            print(stringOne, "Get weigth")
             return stringOne
         }
         return ""

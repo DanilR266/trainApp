@@ -8,6 +8,7 @@
 import UIKit
 import AudioToolbox
 
+
 class ViewController: UIViewController {
     lazy var viewFrame = WeightField()
     lazy var field = WeightField()
@@ -110,8 +111,7 @@ class ViewController: UIViewController {
         bgImage.translatesAutoresizingMaskIntoConstraints = false
         logo.translatesAutoresizingMaskIntoConstraints = false
 
-//        bgImage.transform = bgImage.transform.rotated(by: .pi*7 / 4)
-//        bgImage2.transform = bgImage2.transform.rotated(by: .pi*7 / 4)
+        
         view.addSubview(bgImage)
         view.addSubview(bgImage2)
         view.addSubview(logo)
@@ -134,7 +134,8 @@ class ViewController: UIViewController {
         var finalStr = "\(intText)"
         finalStr = finalStr.replacingOccurrences(of: ".", with: ",", options: .literal, range: nil)
         field.weightField.text = finalStr
-//        UIButton.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {self.buttonAnimation()})
+        we.setW(weightNow: field.weightField.text!)
+        field.weightField.text = we.getW()
         
     }
     
@@ -150,8 +151,9 @@ class ViewController: UIViewController {
         var finalStr = "\(intText)"
         finalStr = finalStr.replacingOccurrences(of: ".", with: ",")
         field.weightField.text = finalStr
+        we.setW(weightNow: field.weightField.text!)
+        field.weightField.text = we.getW()
         
-//        UIButton.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {self.buttonAnimation()})
     }
     
     @objc func buttonDonePressed(_ sender: UIButton) {
@@ -160,7 +162,6 @@ class ViewController: UIViewController {
         caloriesSet.setCalories(calories: foodField.text!)
         field.weightField.text = we.getW()
         buttonAnimationMain(buttonDone.button)
-        
     }
     
     @objc func buttonWaterPressed(_ sender: UIButton) {

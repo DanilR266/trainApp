@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 
-class secondScreen: UIViewController {
+class SecondScreen: UIViewController {
+    
     lazy var viewFrame = WeightField()
     lazy var profile = Profile()
     lazy var fieldWeight = SecondScreenField()
@@ -48,7 +49,7 @@ class secondScreen: UIViewController {
     
     override func viewDidLoad() {
         view.addSubview(profile.profile)
-
+        view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         fieldsOnView()
         labelsOnView()
         setUpLabelOnField()
@@ -56,8 +57,15 @@ class secondScreen: UIViewController {
         view.addSubview(scrollTwo.scroll)
         setUpScroll()
         setUpScrollTwo()
+        print(weightModel.getW())
 
 
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setUpLabelOnField()
         
     }
     
@@ -138,6 +146,12 @@ class secondScreen: UIViewController {
     
     private func setUpLabelOnField() {
         labelFWeight.label.text = weightModel.getW()
+//        var wer: String = weightModel.getW() {
+//            didSet {
+//                print("did set")
+//                labelFWeight.label.text = weightModel.getW()
+//            }
+//        }
         view.addSubview(labelFWeight.label)
         setUpText(text: labelFWeight.label, previous: fieldWeight.field)
         if goalModel.getGoals() != "" {
